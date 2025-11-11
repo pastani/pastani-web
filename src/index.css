@@ -1,0 +1,98 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #0B0B0B;
+  --color-text: #F5F5F5;
+  --color-primary: #E63946;
+}
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.font-playfair {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-montserrat {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@layer components {
+  .btn-primary {
+    @apply px-8 py-3 bg-[#E63946] text-white font-montserrat font-medium rounded-full hover:scale-105 hover:shadow-[0_0_20px_rgba(230,57,70,0.5)] transition-all duration-300;
+  }
+
+  .btn-secondary {
+    @apply px-6 py-2 bg-[#E63946] text-white font-montserrat font-medium rounded-full hover:scale-105 hover:shadow-[0_0_15px_rgba(230,57,70,0.5)] transition-all duration-300 text-sm;
+  }
+
+  .nav-link {
+    @apply text-[#F5F5F5] hover:text-[#E63946] transition-colors duration-300 font-montserrat text-sm font-medium;
+  }
+
+  .filter-btn {
+    @apply px-6 py-2 rounded-full border-2 border-[#E63946]/30 text-[#F5F5F5] font-montserrat font-medium transition-all duration-300 hover:border-[#E63946] hover:bg-[#E63946]/10;
+  }
+
+  .filter-btn.active {
+    @apply bg-[#E63946] border-[#E63946] text-white;
+  }
+
+  .product-card {
+    @apply cursor-pointer transition-transform duration-300 hover:-translate-y-2;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-in;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .bg-gradient-radial {
+    background: radial-gradient(circle, var(--tw-gradient-stops));
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
